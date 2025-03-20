@@ -1,13 +1,11 @@
 package org.example.repository;
 
-
-import org.example.dto.AddressDTO;
-import org.example.model.Address;
+import org.example.model.Supplier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface AddressRepository extends JpaRepository<AddressDTO, UUID>{
+public interface SupplierRepository extends JpaRepository<Supplier, UUID> {
 }

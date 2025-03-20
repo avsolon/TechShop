@@ -5,23 +5,22 @@ import lombok.*;
 
 import java.util.UUID;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
+@Builder
 @Entity
 @Table
-public class Address {
+public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-
     @Column(nullable = false)
-    private String country;
-
+    private String name;
     @Column(nullable = false)
-    private String city;
-
-    @Column(nullable = false)
-    private String street;
+    private String phoneNumber;
+    @ManyToOne
+    @JoinColumn(name = "address_id", nullable = false)
+    private Address address;
 }

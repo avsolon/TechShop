@@ -11,17 +11,12 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table
-public class Address {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false)
-    private String country;
-
-    @Column(nullable = false)
-    private String city;
-
-    @Column(nullable = false)
-    private String street;
+    @Lob
+    @Column
+    private byte[] image;
 }
