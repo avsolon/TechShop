@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.example.dto.AddressDTO;
+import org.example.model.Address;
 import org.example.service.AddressService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,8 @@ public class AddressController {
 
     @PostMapping
     @Operation(summary = "Запрос на создание нового адреса")
-    public ResponseEntity<AddressDTO> createAddress(@Valid @RequestBody AddressDTO addressDTO){
-        AddressDTO savedAddress = addressService.createAddress(addressDTO);
+    public ResponseEntity<Address> createAddress(@Valid @RequestBody AddressDTO addressDTO){
+        Address savedAddress = addressService.createAddress(addressDTO);
         return new ResponseEntity<>(savedAddress, HttpStatus.CREATED);
     }
 

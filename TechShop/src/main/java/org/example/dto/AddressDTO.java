@@ -10,14 +10,14 @@ import lombok.*;
 @Setter
 public class AddressDTO {
     @NotBlank
-    @Schema(name = "country", example = "Russia")
+    @Schema(name = "country", example = "Россия")
     private String country;
 
     @NotBlank
-    @Schema(name = "city", example = "Novosibirsk")
+    @Schema(name = "city", example = "Новосибирск")
     private String city;
 
     @NotBlank
-    @Schema(name = "street", example = "Marks Square, 7")
+    @Schema(name = "street", example = "площадь Маркса, 1")
     private String street;
 }

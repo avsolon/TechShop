@@ -1,10 +1,10 @@
 package org.example.service;
 
-import org.example.dto.AddressDTO;
+import org.example.model.Address;
 
 import java.util.UUID;
 
 public interface AddressService {
-    AddressDTO createAddress(AddressDTO addressDTO);
+    Address createAddress(Address address);
     void deleteAddress(UUID id);
 }

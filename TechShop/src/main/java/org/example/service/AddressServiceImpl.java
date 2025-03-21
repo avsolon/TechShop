@@ -1,7 +1,7 @@
 package org.example.service;
 
 import lombok.AllArgsConstructor;
-import org.example.dto.AddressDTO;
+import org.example.model.Address;
 import org.example.repository.AddressRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +12,8 @@ import java.util.UUID;
 public class AddressServiceImpl implements AddressService{
     private AddressRepository addressRepository;
     @Override
-    public AddressDTO createAddress(AddressDTO addressDTO){
-        return addressRepository.save(addressDTO);
+    public Address createAddress(Address address){
+        return addressRepository.save(address);
     }
 
     @Override

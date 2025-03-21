@@ -13,11 +13,11 @@ import java.time.LocalDate;
 @Setter
 public class ClientDTO {
     @NotBlank
-    @Schema(name = "clientName", example = "Ivan")
+    @Schema(name = "clientName", example = "Иван")
     private String clientName;
 
     @NotBlank
-    @Schema(name = "clientSurName", example = "Ivanov")
+    @Schema(name = "clientSurName", example = "Иванов")
     private String clientSurname;
 
     @NotNull
@@ -25,7 +25,7 @@ public class ClientDTO {
     private LocalDate birthday;
 
     @NotBlank
-    @Schema(name = "gender", example = "male/female")
+    @Schema(name = "gender", example = "м/ж")
     private String gender;
 
     private AddressDTO addressDTO;
