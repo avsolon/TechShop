@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.example.dto.AddressDTO;
 import org.example.model.Address;
 import org.example.service.AddressService;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -22,12 +23,14 @@ import java.util.UUID;
 public class AddressController {
 
     private AddressService addressService;
+    private ModelMapper modelMapper;
 
     @PostMapping
     @Operation(summary = "Запрос на создание нового адреса")
-    public ResponseEntity<Address> createAddress(@Valid @RequestBody AddressDTO addressDTO){
-        Address savedAddress = addressService.createAddress(addressDTO);
-        return new ResponseEntity<>(savedAddress, HttpStatus.CREATED);
+    public ResponseEntity<AddressDTO> createAddress(@Valid @RequestBody AddressDTO addressDTO){
+        Address address = modelMapper.map(addressDTO, Address.class);
+        Address savedAddress = addressService.createAddress(address);
+        return new ResponseEntity<>(modelMapper.map(savedAddress, AddressDTO.class), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

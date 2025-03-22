@@ -42,7 +42,8 @@ public class ClientController {
     @Operation(summary = "Запрос на удаление клиента по id")
     public ResponseEntity<Void> deleteClient(@PathVariable UUID id){
         clientService.deleteClient(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().
+                header("Deletion-Message", "Client deleted successfully").build(); //204
     }
 
     @GetMapping("/searchNameSurname")
